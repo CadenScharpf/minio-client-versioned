@@ -50,25 +50,25 @@ async function main() {
 }
 
 function aliasCmd() {
-  if(options.help) { aliasHelpText(null) }
   if(options.command.length === 1) {
+    if(options.help) { aliasHelpText(null); process.exit(0); }
     throw new Error("Subcommand is required");
   }
   const subcommand = options.command[1];
   switch(subcommand) {
     case "add":
-      if(options.help) { aliasHelpText("add") }
+      if(options.help) { aliasHelpText("add"); process.exit(0); }
       const {name, cfg} = parseAlias();
       aliasManager.addAlias(name, cfg);
       console.log(`Alias ${name} added`, aliasManager.listAliases());
       break;
     case "remove":
-      if(options.help) { aliasHelpText("remove") }
+      if(options.help) { aliasHelpText("remove"); process.exit(0); }
       if(!options.name) { throw new Error("Alias name is required"); }
       aliasManager.removeAlias(options.name);
       break;
     case "list":
-      if(options.help) { aliasHelpText("list") }
+      if(options.help) { aliasHelpText("list"); process.exit(0); }
       console.log(aliasManager.listAliases());
       break;
   }
