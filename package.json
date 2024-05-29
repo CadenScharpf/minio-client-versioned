@@ -15,6 +15,10 @@
   "bin": {
     "mcv": "index.js"
   },
+  "files": [
+    "src",
+    "index.js"
+  ],
   "keywords": [
     "s3",
     "minio",
@@ -24,7 +28,7 @@
     "migration",
     "data"
   ],
-  "version": "1.0.2",
+  "version": "1.0.5",
   "main": "index.js",
   "repository": {
     "type": "git",

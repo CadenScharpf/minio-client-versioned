@@ -69,7 +69,7 @@ function aliasCmd() {
       break;
     case "list":
       if(options.help) { aliasHelpText("list") }
-      aliasManager.listAlias();
+      console.log(aliasManager.listAliases());
       break;
   }
 }
