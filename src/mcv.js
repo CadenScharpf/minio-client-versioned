@@ -4,11 +4,12 @@ const async = require('async');
 
 class MCV {
 
-  constructor(sourceClient, targetClient, clean=false, verbose=false) {
+  constructor(sourceClient, targetClient, clean=false, verbose=false, concurrency=100) {
     this.sourceClient = sourceClient;
     this.targetClient = targetClient;
     this.clean = clean || false;
     this.verbose = verbose || false;
+    this.concurrency = concurrency || 100;
   }
 
   #getObjectsToCopy(source, target) {
@@ -94,7 +95,7 @@ class MCV {
     await new Promise( (resolve, reject)=>{
     async.eachLimit(
       Object.keys(objects),
-      100,
+      this.concurrency,
       async  (objName) => {
         await this.#deleteTargetObjVersions(bucketName, target[objName]);
         if(source[objName]) {

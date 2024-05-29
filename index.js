@@ -27,7 +27,8 @@ const optionDefinitions = [
   
   { name: 'clean', alias: 'c', type: Boolean },
   { name: 'verbose', alias: 'v', type: Boolean },
-  { name: 'help', alias: 'h', type: Boolean }
+  { name: 'help', alias: 'h', type: Boolean },
+  { name : 'concurrency', alias: 'C', type: Number }
 ]
 
 const options = commandLineArgs(optionDefinitions);
@@ -110,6 +111,7 @@ async function mirror() {
     console.log("  -t, --target [target]  Target client");
     console.log("  -c, --clean            Clean objects in target bucket that are not in source bucket");
     console.log("  -v, --verbose          Verbose output");
+    console.log("  -C, --concurrency      No. of concurrent object streams (default 100)");
     process.exit(0);
   }
   const mcv = initMCV(options);
@@ -157,10 +159,9 @@ function initMCV() {
   if(!alias[options.target]) {
     throw new Error(`Target client ${options.target} not found in alias`);
   }
-  
   const sourceClient = new Minio.Client(alias[options.source]);
   const targetClient = new Minio.Client(alias[options.target]);  
-  return new MCV(sourceClient, targetClient, options.clean, options.verbose);
+  return new MCV(sourceClient, targetClient, options.clean, options.verbose, options.concurrency || 100);
 }
 
 function parseAlias() {
