@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "name": "@caden-scharpf/minio-client-versioned",
+  "name": "@cscharpf/minio-client-versioned",
   "description": "Minio Client Versioned (MCV) is an alternative to the MinIO 'mirror' CLI, ensuring replication while preserving the order of versioned objects. Utilize MCV for seamless data migration between any S3 or MinIO bucket.",
   "bin": {
     "mcv": "index.js"
@@ -24,7 +24,7 @@
     "migration",
     "data"
   ],
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "index.js",
   "repository": {
     "type": "git",

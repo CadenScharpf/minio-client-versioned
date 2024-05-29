@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 const Minio = require("minio");
 const chalk = require('chalk');
@@ -56,18 +57,18 @@ function aliasCmd() {
   const subcommand = options.command[1];
   switch(subcommand) {
     case "add":
-      aliasHelpText("add");
+      if(options.help) { aliasHelpText("add") }
       const {name, cfg} = parseAlias();
       aliasManager.addAlias(name, cfg);
       console.log(`Alias ${name} added`, aliasManager.listAliases());
       break;
     case "remove":
-      aliasHelpText("remove");
+      if(options.help) { aliasHelpText("remove") }
       if(!options.name) { throw new Error("Alias name is required"); }
       aliasManager.removeAlias(options.name);
       break;
     case "list":
-      aliasHelpText("list");
+      if(options.help) { aliasHelpText("list") }
       aliasManager.listAlias();
       break;
   }
