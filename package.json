@@ -5,9 +5,35 @@
     "async": "3.2.5",
     "postgresql-client": "2.10.6",
     "chalk": "4.1.0",
-    "command-line-args":"5.2.1"
+    "command-line-args": "5.2.1"
   },
   "scripts": {
     "start": "node index.js"
-  }
+  },
+  "name": "@caden-scharpf/minio-client-versioned",
+  "description": "Minio Client Versioned (MCV) is an alternative to the MinIO 'mirror' CLI, ensuring replication while preserving the order of versioned objects. Utilize MCV for seamless data migration between any S3 or MinIO bucket.",
+  "bin": {
+    "mcv": "index.js"
+  },
+  "keywords": [
+    "s3",
+    "minio",
+    "mcv",
+    "versioned",
+    "replication",
+    "migration",
+    "data"
+  ],
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CadenScharpf/minio-client-versioned.git"
+  },
+  "author": "Caden Scharpf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CadenScharpf/minio-client-versioned/issues"
+  },
+  "homepage": "https://github.com/CadenScharpf/minio-client-versioned#readme"
 }
