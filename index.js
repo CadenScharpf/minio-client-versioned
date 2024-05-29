@@ -51,24 +51,24 @@ async function main() {
 
 function aliasCmd() {
   if(options.command.length === 1) {
-    if(options.help) { aliasHelpText(null); process.exit(0); }
+    if(options.help) { aliasHelpText(null); return; }
     throw new Error("Subcommand is required");
   }
   const subcommand = options.command[1];
   switch(subcommand) {
     case "add":
-      if(options.help) { aliasHelpText("add"); process.exit(0); }
+      if(options.help) { aliasHelpText("add"); return; }
       const {name, cfg} = parseAlias();
       aliasManager.addAlias(name, cfg);
       console.log(`Alias ${name} added`, aliasManager.listAliases());
       break;
     case "remove":
-      if(options.help) { aliasHelpText("remove"); process.exit(0); }
+      if(options.help) { aliasHelpText("remove"); return; }
       if(!options.name) { throw new Error("Alias name is required"); }
       aliasManager.removeAlias(options.name);
       break;
     case "list":
-      if(options.help) { aliasHelpText("list"); process.exit(0); }
+      if(options.help) { aliasHelpText("list"); return; }
       console.log(aliasManager.listAliases());
       break;
   }
@@ -113,7 +113,7 @@ async function mirror() {
     console.log("  -c, --clean            Clean objects in target bucket that are not in source bucket");
     console.log("  -v, --verbose          Verbose output");
     console.log("  -C, --concurrency      No. of concurrent object streams (default 100)");
-    process.exit(0);
+    return;
   }
   const mcv = initMCV(options);
   if(!options.bucket || options.bucket.length === 0) {

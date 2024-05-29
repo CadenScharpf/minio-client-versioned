@@ -1,6 +1,15 @@
-# Minio Client Versioned (MCV)
+<center><h1>Minio Client Versioned (MCV)</h1><center>
+<p align="center">
+    <a href="https://www.npmjs.com/package/@cscharpf/minio-client-versioned">
+        <img src="https://img.shields.io/npm/v/@cscharpf/minio-client-versioned.svg?style=flat&logo=npm" alt="NPM Version">
+    </a>
+    <center>
+        <p >
+        MCV is a drop in replacement for the MinIO <a href="https://min.io/docs/minio/linux/reference/minio-mc/mc-mirror.html">mirror</a> CLI with the added benefit of ensuring replication while preserving the order of versioned objects. Utilize MCV for seamless data migration between any S3 or MinIO bucket.
+        </p>
+    </center>
+</p>
 
-MCV is a command-line interface (CLI) tool built with Node.js that provides functionality to replicate and manage versioned objects between S3 or MinIO buckets.
 
 ## Installation
 
